@@ -1,0 +1,118 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #141414;
+    color: white;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #222;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: left;
+    margin-top: 10px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s;
+}
+
+
+
+.banner {
+    background: url('banner-image.jpg') center/cover no-repeat;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.banner h1 {
+    font-size: 48px;
+}
+
+button {
+    background-color: #e50914;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #b00710;
+}
+
+.movies {
+    padding: 20px;
+}
+
+.movie-container {
+    display: flex;
+    overflow-x: scroll; 
+    scroll-snap-type: x mandatory;
+}
+
+.movie {
+    display: inline-block; 
+    margin: 10px; 
+    text-align: center; 
+}
+
+.movie:hover {
+    transform: scale(1.05); 
+}
+
+.movie img {
+    width: 205px; 
+    height: 300px; 
+    object-fit: cover; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); 
+}
+
+.movie p {
+    margin: 10px 0; 
+    text-align: center; 
+}
+
+.footer {
+    text-align: center;
+}
+
+
+@media (max-width: 768px) {
+    .banner h1 {
+        font-size: 32px;
+    }
+
+    button {
+        padding: 8px 16px;
+    }
+
+    .movie {
+        min-width: 150px;
+    }
+}
