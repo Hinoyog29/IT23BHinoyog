@@ -1,3 +1,8 @@
+:root {
+    --primary-color: #e50914;
+    --dark-bg: #222;
+    --hover-bg-color: #b00710;
+}
 
 body {
     font-family: Arial, sans-serif;
@@ -11,7 +16,7 @@ header {
     display: flex;
     justify-content: space-between;
     padding: 10px;
-    background-color: #222;
+    background-color: var(--dark-bg);
 }
 
 .logo {
@@ -36,8 +41,6 @@ nav a {
     transition: color 0.3s;
 }
 
-
-
 .banner {
     background: url('banner-image.jpg') center/cover no-repeat;
     height: 60vh;
@@ -53,7 +56,7 @@ nav a {
 }
 
 button {
-    background-color: #e50914;
+    background-color: var(--primary-color);
     border: none;
     padding: 10px 20px;
     font-size: 16px;
@@ -62,7 +65,7 @@ button {
 }
 
 button:hover {
-    background-color: #b00710;
+    background-color: var(--hover-bg-color);
 }
 
 .movies {
@@ -71,58 +74,52 @@ button:hover {
 
 .movie-container {
     display: flex;
-    overflow-x: scroll; 
+    overflow-x: scroll;
     scroll-snap-type: x mandatory;
+    gap: 20px;
+    padding: 10px;
+    justify-content: flex-start;
 }
 
 .movie {
-    display: inline-block; 
-    margin: 10px; 
-    text-align: center; 
-}
-
-.movie:hover {
-    transform: scale(1.05); 
-}
-
-.movie img {
-    width: 205px; 
-    height: 300px; 
-    object-fit: cover; 
-    border-radius: 8px; 
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); 
-}
-
-.movie p {
-    margin: 10px 0; 
-    text-align: center; 
-}
-
-.footer {
+    display: inline-block;
+    margin: 10px;
     text-align: center;
 }
 
-
-@media (max-width: 768px) {
-    .banner h1 {
-        font-size: 32px;
-    }
-
-    button {
-        padding: 8px 16px;
-    }
-
-    .movie {
-        min-width: 150px;
-    }
+.movie:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
+.movie img {
+    width: 205px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
+}
 
+.movie img:hover {
+    transform: scale(1.05);
+}
+
+.movie p {
+    margin: 10px 0;
+    text-align: center;
+}
+
+.footer p {
+    text-align: center;
+}
+
+/* Contact Form */
 .contact {
     max-width: 600px;
     margin: 50px auto;
     padding: 20px;
-    background-color: #222;
+    background-color: var(--dark-bg);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
@@ -157,23 +154,25 @@ button:hover {
 
 .form-group input:focus, .form-group textarea:focus {
     outline: none;
-    border-color: #e50914;
+    border-color: var(--primary-color);
 }
 
 button[type="submit"] {
-    background-color: #e50914;
+    background-color: var(--primary-color);
     border: none;
     padding: 10px 20px;
     color: white;
     cursor: pointer;
     border-radius: 5px;
     width: 100%;
+    font-weight: bold;
     transition: background-color 0.3s;
 }
 
 button[type="submit"]:hover {
-    background-color: #b00710;
+    background-color: var(--hover-bg-color);
 }
+
 /* TV Shows Section */
 .tv-shows {
     padding: 20px;
@@ -187,17 +186,17 @@ button[type="submit"]:hover {
 
 .tv-show-container {
     display: flex;
-    overflow-x: auto;  
-    scroll-snap-type: x mandatory;  
-    gap: 20px;  
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 20px;
     padding: 10px;
+    justify-content: flex-start;
 }
 
-
 .tv-show {
-    flex: 0 0 auto;  
+    flex: 0 0 auto;
     width: 200px;
-    scroll-snap-align: start;  
+    scroll-snap-align: start;
 }
 
 .tv-show img {
@@ -217,22 +216,36 @@ button[type="submit"]:hover {
     margin-top: 10px;
     font-size: 16px;
     color: #bbb;
-    
 }
 
-
 @media (max-width: 768px) {
+    .banner h1 {
+        font-size: 32px;
+    }
+
+    button {
+        padding: 8px 16px;
+    }
+
+    .movie {
+        min-width: 150px;
+    }
+
     .tv-show-container {
-        flex-direction: column;  
+        flex-direction: column;
         align-items: center;
+        max-width: 600px;
     }
 
     .tv-show {
-        width: 80%;  
+        width: 80%;
     }
 
     .tv-show img {
-        height: 250px;  
+        height: 250px;
+    }
+
+    .footer p {
+        font-size: 14px;
     }
 }
-
