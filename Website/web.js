@@ -1,4 +1,3 @@
-
 const availableMovies = [
     { id: 1, title: "Kaiju No.8", img: "images/movie1.jpg" },
     { id: 2, title: "Stranger Things", img: "images/movie2.jpg" },
@@ -7,7 +6,6 @@ const availableMovies = [
     { id: 5, title: "Haikyuuu!", img: "images/movie5.jpg" }
 ];
 
-
 let myList = [];
 
 
@@ -15,6 +13,19 @@ const movieSelect = document.getElementById("movieSelect");
 const addMovieBtn = document.getElementById("addMovieBtn");
 const movieListContainer = document.getElementById("movieList");
 
+
+function loadMyList() {
+    const storedList = JSON.parse(localStorage.getItem('myMovies'));
+    if (storedList) {
+        myList = storedList;
+    }
+    displayMyList();
+}
+
+
+function saveMyList() {
+    localStorage.setItem('myMovies', JSON.stringify(myList));
+}
 
 function populateMovieSelect() {
     availableMovies.forEach(movie => {
@@ -25,9 +36,8 @@ function populateMovieSelect() {
     });
 }
 
-
 function displayMyList() {
-    movieListContainer.innerHTML = ""; 
+    movieListContainer.innerHTML = "";  
     myList.forEach(movie => {
         const movieDiv = document.createElement("div");
         movieDiv.classList.add("movie");
@@ -44,18 +54,22 @@ function displayMyList() {
 addMovieBtn.addEventListener("click", () => {
     const selectedMovieId = parseInt(movieSelect.value);
     const movieToAdd = availableMovies.find(movie => movie.id === selectedMovieId);
+    
     if (movieToAdd && !myList.some(movie => movie.id === movieToAdd.id)) {
-        myList.push(movieToAdd); 
-        displayMyList(); 
+        myList.push(movieToAdd);  
+        saveMyList();  
+        displayMyList();  
     }
 });
 
 
 function removeMovie(movieId) {
     myList = myList.filter(movie => movie.id !== movieId);
-    displayMyList(); 
+    saveMyList();  
+    displayMyList();  
 }
 
-
-populateMovieSelect(); 
-displayMyList(); 
+document.addEventListener('DOMContentLoaded', () => {
+    loadMyList();
+    populateMovieSelect();
+});
