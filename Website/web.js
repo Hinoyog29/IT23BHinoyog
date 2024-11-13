@@ -1,4 +1,4 @@
-// Movie data (this would be your available movie options)
+
 const availableMovies = [
     { id: 1, title: "Kaiju No.8", img: "images/movie1.jpg" },
     { id: 2, title: "Stranger Things", img: "images/movie2.jpg" },
@@ -7,15 +7,15 @@ const availableMovies = [
     { id: 5, title: "Haikyuuu!", img: "images/movie5.jpg" }
 ];
 
-// Current "My List"
+
 let myList = [];
 
-// Select the dropdown and button elements
+
 const movieSelect = document.getElementById("movieSelect");
 const addMovieBtn = document.getElementById("addMovieBtn");
 const movieListContainer = document.getElementById("movieList");
 
-// Function to populate the dropdown with available movies
+
 function populateMovieSelect() {
     availableMovies.forEach(movie => {
         const option = document.createElement("option");
@@ -25,9 +25,9 @@ function populateMovieSelect() {
     });
 }
 
-// Display the movies in the "My List"
+
 function displayMyList() {
-    movieListContainer.innerHTML = ""; // Clear the current list
+    movieListContainer.innerHTML = ""; 
     myList.forEach(movie => {
         const movieDiv = document.createElement("div");
         movieDiv.classList.add("movie");
@@ -40,22 +40,22 @@ function displayMyList() {
     });
 }
 
-// Add movie to "My List"
+
 addMovieBtn.addEventListener("click", () => {
     const selectedMovieId = parseInt(movieSelect.value);
     const movieToAdd = availableMovies.find(movie => movie.id === selectedMovieId);
     if (movieToAdd && !myList.some(movie => movie.id === movieToAdd.id)) {
-        myList.push(movieToAdd); // Add movie to the list
-        displayMyList(); // Re-render the list
+        myList.push(movieToAdd); 
+        displayMyList(); 
     }
 });
 
-// Remove movie from "My List"
+
 function removeMovie(movieId) {
     myList = myList.filter(movie => movie.id !== movieId);
-    displayMyList(); // Re-render the list after removal
+    displayMyList(); 
 }
 
-// Initialize the page
-populateMovieSelect(); // Populate the dropdown with available movies
-displayMyList(); // Display the initial list (if any)
+
+populateMovieSelect(); 
+displayMyList(); 
