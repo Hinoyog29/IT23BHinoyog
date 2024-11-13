@@ -179,16 +179,25 @@ button[type="submit"]:hover {
     padding: 20px;
 }
 
-.tv-show-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    
+.tv-shows h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: white;
 }
 
+.tv-show-container {
+    display: flex;
+    overflow-x: auto;  
+    scroll-snap-type: x mandatory;  
+    gap: 20px;  
+    padding: 10px;
+}
+
+
 .tv-show {
+    flex: 0 0 auto;  
     width: 200px;
-    text-align: center;
+    scroll-snap-align: start;  
 }
 
 .tv-show img {
@@ -208,12 +217,22 @@ button[type="submit"]:hover {
     margin-top: 10px;
     font-size: 16px;
     color: #bbb;
-   
+    
 }
 
-.tv-shows h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
-    color: white;
+
+@media (max-width: 768px) {
+    .tv-show-container {
+        flex-direction: column;  
+        align-items: center;
+    }
+
+    .tv-show {
+        width: 80%;  
+    }
+
+    .tv-show img {
+        height: 250px;  
+    }
 }
 
