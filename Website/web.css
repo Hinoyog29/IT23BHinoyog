@@ -79,12 +79,15 @@ button:hover {
     gap: 20px;
     padding: 10px;
     justify-content: flex-start;
+    width: 100%; /* Ensures the container spans the full width */
 }
 
 .movie {
     display: inline-block;
-    margin: 10px;
+    width: 200px; /* Fixed width for each movie */
     text-align: center;
+    margin: 10px;
+    flex-shrink: 0; /* Prevent shrinking */
 }
 
 .movie:hover {
@@ -249,6 +252,7 @@ button[type="submit"]:hover {
         font-size: 14px;
     }
 }
+
 /* "My List" Page Styles */
 .my-list {
     padding: 20px;
